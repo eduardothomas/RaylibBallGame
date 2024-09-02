@@ -16,12 +16,19 @@ class Program
 
         while (!WindowShouldClose())
         {
-            ballX += 10;
+            if (IsKeyDown(KeyboardKey.Right))
+                ballX += 10;
+            else if (IsKeyDown(KeyboardKey.Left))
+                ballX -= 10;
+            else if (IsKeyDown(KeyboardKey.Up))
+                ballY -= 10;
+            else if (IsKeyDown(KeyboardKey.Down))
+                ballY += 10;
             
             BeginDrawing();
             ClearBackground(Color.SkyBlue);
             
-            DrawCircle(ballX, 400, 20, Color.Red);
+            DrawCircle(ballX, ballY, 20, Color.Red);
             
             EndDrawing();
         }
